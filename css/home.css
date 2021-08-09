@@ -3,9 +3,16 @@
    padding: 0;
    box-sizing: border-box; 
 }
-body{
+/* body{
     width: 100%;
+   
+} */
+
+
+
+#wrapper{
     overflow-x: hidden;
+    
 }
 /* nav bar */
 .nav{
@@ -38,8 +45,6 @@ body{
     justify-content: space-around;
     width: 36vw;
     
-    
-    
 }
 
 .nav a{
@@ -48,14 +53,18 @@ body{
 }
 
 
+
+
 /* section 1  */
 .section-1{
     background: #0D1821;
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+  
 }
 
 .circle-1 ,.circle-2 ,.circle-3,.circle-4{
@@ -163,3 +172,120 @@ filter: blur(10px);
 
 }
 
+
+
+
+
+/* mobile screen android */
+@media screen and (max-width: 800px){
+
+    /* body */
+    
+
+
+    /* nav */
+
+    .resnav{
+        transform: translateX(0vw) !important;
+        overflow: hidden !important;
+
+    }
+    .d-none{
+        display: none !important;
+    }
+    .burgerNav{
+        position: absolute;
+        display: block;
+        z-index: 5;
+        
+        top: 20px;
+        right: 20px;
+    }
+
+    .line{
+        height: 2px;
+        width: 32px;
+        background: white;
+        z-index: 4;
+        margin: 7.5px;
+    
+    }
+
+    .nav{
+        height: 80px;
+        padding: 0 5vw;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        overflow: hidden;
+    }
+    .logoNav img{
+        height: 70px;
+        width: 120px;
+    }
+    .navList{
+        transform: translateX(100vw);
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100vh;
+        width: 100vw;
+        background: #0D1821;
+        z-index: 4;
+        position: fixed;
+
+        
+    }
+    .navItem{
+        height: 100px;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 4;
+        
+
+    }
+    /* sect 1 */
+    .section-1{
+        position: relative;
+        overflow-x: hidden;
+        z-index: -1;
+    }
+
+    .circle-1{
+        width: 320px;
+        height: 320px;
+        left: -30vw;
+        top: 15vh;
+    }
+    .circle-4{
+        display: none;
+    }
+
+    .mainText{
+        
+        padding: 0 0 0 30px;
+    
+    
+    }
+
+    .socialHandle{
+       width: 78vw;
+    }
+    .headButton {
+        height: 20vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 8vh;
+        flex-direction: column;
+        align-content: center;
+    }
+
+    .scrollBtn{
+        top: 82vh;
+        left: 45vw;
+    }
+}
