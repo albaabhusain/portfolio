@@ -3,15 +3,17 @@
    padding: 0;
    box-sizing: border-box; 
 }
-/* body{
-    width: 100%;
-   
-} */
+body{
+    width: 100vw;
+    overflow-x: hidden !important;
+   scroll-behavior: smooth;
+}
 
 
 
 #wrapper{
-    overflow-x: hidden;
+    overflow-x: hidden !important;
+    
     
 }
 /* nav bar */
@@ -20,10 +22,11 @@
     position: absolute;
     display: flex;
     height: 98px;
-    width: 100vw;
-    padding: 0 10vw ;
+    width: 98vw;
+    padding: 0 8vw ;
     align-items: center;
     font-size: 18px;
+    z-index: 4;
 
 }
 .logoNav{
@@ -59,11 +62,12 @@
 .section-1{
     background: #0D1821;
     height: 100vh;
-    width: 100vw;
+    max-width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    position: relative;
   
 }
 
@@ -109,6 +113,7 @@ filter: blur(10px);
     z-index: 2;
     display: flex;
     flex-direction: column;
+    
 
 
 }
@@ -173,6 +178,24 @@ filter: blur(10px);
 }
 
 
+.container-2{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+
+}
+.cLeft{
+    background: #0D1821;
+    height: 100vh;
+    width: 50vw;
+
+}
+.cRight{
+    height: 100vh;
+    width: 50vw;
+}
+
+
 
 
 
@@ -186,20 +209,32 @@ filter: blur(10px);
     /* nav */
 
     .resnav{
-        transform: translateX(0vw) !important;
+        transform: translateX(1vw) !important;
         overflow: hidden !important;
+        border-radius: 0 0 0 70vw;
 
     }
     .d-none{
         display: none !important;
     }
+    .line-1{
+        transform: rotate(45deg ) translate(6.5px, 6px) !important;
+    }
+    .line-2{
+       
+        transform: rotate(-45deg)  !important;
+        
+    }
     .burgerNav{
         position: absolute;
         display: block;
         z-index: 5;
-        
         top: 20px;
         right: 20px;
+      
+    }
+    .burgerNav div{
+          transition:  all 0.2s ease-in;
     }
 
     .line{
@@ -224,16 +259,18 @@ filter: blur(10px);
         width: 120px;
     }
     .navList{
-        transform: translateX(100vw);
+        transform: translateX(100%);
         align-self: center;
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         height: 100vh;
         width: 100vw;
+        
         background: #0D1821;
         z-index: 4;
         position: fixed;
+        transition: all 0.3s ease;
 
         
     }
@@ -264,8 +301,12 @@ filter: blur(10px);
         display: none;
     }
 
+    .headContainer{
+        max-width: 100vw;
+    }
+
     .mainText{
-        
+        max-width: 99vw;
         padding: 0 0 0 30px;
     
     
