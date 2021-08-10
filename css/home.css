@@ -209,10 +209,14 @@ filter: blur(10px);
     /* nav */
 
     .resnav{
+        
         transform: translateX(1vw) !important;
         overflow: hidden !important;
         border-radius: 0 0 0 70vw;
 
+    }
+    .fixed{
+        position: fixed !important;
     }
     .d-none{
         display: none !important;
