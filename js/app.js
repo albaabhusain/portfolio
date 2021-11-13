@@ -7,6 +7,7 @@ const line3=document.querySelector('.l-3')
 
 
 
+// responsive nav
 
 resNav.addEventListener('click',()=>{
 
