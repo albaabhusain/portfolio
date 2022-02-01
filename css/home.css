@@ -212,6 +212,7 @@ filter: blur(10px);
     z-index: 3;
     left: 35vw;
     top: 10vh;
+    opacity: 0.95;
 }
 .imgport img{
     height: auto;
@@ -321,14 +322,14 @@ filter: blur(10px);
 }
 
 .project-slider{
-    display: flex;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
     width: 90vw;
-    justify-content: space-evenly;
     margin: 50px 20px;
 }
 
 .card{
-    height: 500px ;
+    height: 200px ;
     width: 350px;
     border: 1px solid #F49F0A;
     border-radius: 10px;
@@ -339,6 +340,7 @@ filter: blur(10px);
 /* section 3 */
 
 .section-3{
+    position: relative;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
@@ -348,6 +350,7 @@ filter: blur(10px);
 
 }
 .container-3{
+    
     background: #0D1821;
     width: 75vw;
     height: 100vh;
@@ -382,14 +385,57 @@ filter: blur(10px);
 }
 
 
+.about-img{
+    position: absolute;
+    right: 36px;
+    bottom: 70px;
+    z-index: 4;
+    border: 10px dashed white;
+}
+
+.about-img img{
+    
+        height: 602px;
+        width: 440px;
+        z-index: -1;
+}
+
+/* blog section */
+
+.blog-slider{
+
+    display:flex;
+    justify-content: space-between;
+    width: 90vw;
+    margin: 50px 20px;
+
+}
+
+.card-blog{
+    height: 500px ;
+    width: 350px;
+    border: 1px solid #F49F0A;
+    border-radius: 10px;
+}
+
+
 /* footer */
 
 .footer{
     width: 100vw;
-    height: 20vh;
+    height: 80vh;
     background: #0d1821de;
 }
 
+.inner-footer{
+    width: 100vw;
+    height: 20vh;
+    background: rgba(0, 0, 0, 0.397);
+}
+.upper-footer{
+    height: 60vh;
+    width: 100vw;
+}
 
 
 
@@ -527,4 +573,58 @@ filter: blur(10px);
         top: 82vh;
         left: 45vw;
     }
+
+    /* .section-2 */
+
+    .imgport{
+        display: none;
+    }
+    
+    .section-2{
+        
+        height: 140vh;
+    }
+    .container-2{
+        flex-direction: column;
+    }
+    .cLeft{
+        width: 100vw;
+        padding: 20px 30px;
+    }
+    .cRight{
+        width: 100vw;
+        padding: 20px 30px;  
+    }
+
+    /* about */
+
+    .about-img{
+        display: none;
+    }
+
+    .container-3{
+        width: 100vw;
+        border-radius: 0;
+        
+    }
+    .cLeft-3{
+        padding: 50px 0px 0px 30px;
+        width: 90vw;
+        
+    }
+
+    .cLeft-3 p{
+        width: 250px;
+    }
+    .btn-3{
+        flex-direction: column;
+       align-content: space-between;
+    }
+
+
+
 }
+
+
+
+
