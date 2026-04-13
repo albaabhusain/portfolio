@@ -582,8 +582,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .hero-avatar-row .avatar-stack {
-  width: 72px;
-  height: 72px;
+  width: 76px;
+  height: 76px;
   border: 2px solid var(--accent);
   box-shadow: 0 0 0 4px var(--accent-glow);
   transition: box-shadow var(--transition);
@@ -595,8 +595,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .about-avatar .avatar-flip-inner {
-  width: 110px;
-  height: 110px;
+  width: 112px;
+  height: 112px;
 }
 
 .hero-avatar-row .avatar-stack:hover {
@@ -628,8 +628,8 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
 }
 
 .about-avatar {
-  width: 110px;
-  height: 110px;
+  width: 116px;
+  height: 116px;
   border: 2px solid var(--accent);
   box-shadow: 0 0 0 5px var(--accent-glow);
   transition: box-shadow var(--transition), transform var(--transition);
@@ -721,6 +721,77 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    ═══════════════════════════════════════════════════ */
 .skills-section {
   background: var(--bg);
+}
+
+/* ── Marquee ── */
+.skills-marquee {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 64px;
+  /* fade edges */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 28px;
+  border-right: 1px solid var(--border-soft);
+  flex-shrink: 0;
+  transition: background var(--transition);
+}
+
+.marquee-item:hover {
+  background: var(--surface-2);
+}
+
+.marquee-item img,
+.marquee-item .marquee-svg {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.15));
+  transition: transform 0.25s ease;
+}
+
+.marquee-item:hover img,
+.marquee-item:hover .marquee-svg {
+  transform: translateY(-3px) scale(1.15);
+}
+
+.marquee-item span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-3);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Next.js and OpenAI logos are white — invert in light mode */
+[data-theme="light"] .icon-invert-light {
+  filter: invert(1) drop-shadow(0 1px 4px rgba(0,0,0,0.1));
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }  /* -50% = exactly one set width */
 }
 
 .skills-groups {
