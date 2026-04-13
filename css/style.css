@@ -518,6 +518,128 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   margin-top: 24px;
 }
 
+/* ── Shared Avatar Stack — 3D flip on hover ── */
+.avatar-stack {
+  position: relative;
+  border-radius: 50%;
+  display: block;
+  cursor: pointer;
+  perspective: 600px;   /* depth for the 3D flip */
+}
+
+.avatar-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation: avatarAutoFlip 3.5s ease-in-out infinite;
+}
+
+/* Pause on hover — freezes on whichever face is showing */
+.avatar-stack:hover .avatar-flip-inner {
+  animation-play-state: paused;
+}
+
+@keyframes avatarAutoFlip {
+  0%   { transform: rotateY(0deg);   }   /* front — start          */
+  43%  { transform: rotateY(0deg);   }   /* front — hold ~1.5s     */
+  50%  { transform: rotateY(180deg); }   /* back  — arrive         */
+  93%  { transform: rotateY(180deg); }   /* back  — hold ~1.5s     */
+  100% { transform: rotateY(360deg); }   /* front — back seamlessly */
+}
+
+/* Both images */
+.avatar-img {
+  display: block;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.avatar-img--main {
+  /* front face — default */
+}
+
+.avatar-img--hover {
+  /* back face — shown after flip */
+  transform: rotateY(180deg);
+}
+
+/* ── Hero Avatar ── */
+.hero-avatar-row {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeUp 0.5s 0.1s forwards;
+}
+
+.hero-avatar-row .avatar-stack {
+  width: 72px;
+  height: 72px;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-glow);
+  transition: box-shadow var(--transition);
+}
+
+.hero-avatar-row .avatar-flip-inner {
+  width: 72px;
+  height: 72px;
+}
+
+.about-avatar .avatar-flip-inner {
+  width: 110px;
+  height: 110px;
+}
+
+.hero-avatar-row .avatar-stack:hover {
+  box-shadow: 0 0 0 6px var(--accent-glow);
+}
+
+.hero-avatar-status {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #22c55e;
+  border: 2px solid var(--bg);
+  z-index: 10;
+  animation: statusPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+  50%       { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+}
+
+/* ── About Section Avatar ── */
+.about-photo-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.about-avatar {
+  width: 110px;
+  height: 110px;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 5px var(--accent-glow);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.about-avatar:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 0 8px var(--accent-glow);
+}
+
 /* Right column */
 .about-right {
   display: flex;
