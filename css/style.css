@@ -478,82 +478,34 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   background: var(--bg-secondary);
 }
 
-.about-grid {
+.about-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 56px;
+}
+
+.about-header .section-title {
+  margin-bottom: 0;
+}
+
+.about-body {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 80px;
-  align-items: center;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 64px;
+  align-items: start;
 }
 
-.about-image-wrap {
+.about-bio {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-}
-
-.about-image-frame {
-  position: relative;
-  width: 280px;
-}
-
-.about-image-placeholder {
-  width: 280px;
-  height: 320px;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 3rem;
-  font-weight: 700;
-  color: rgba(255,255,255,0.9);
-  position: relative;
-  z-index: 1;
-}
-
-.about-image-glow {
-  position: absolute;
-  inset: -20px;
-  background: var(--accent-glow);
-  filter: blur(40px);
-  border-radius: var(--radius-lg);
-  z-index: 0;
-}
-
-.about-stats {
-  display: flex;
-  gap: 24px;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.stat-number {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-.stat-label {
-  font-size: 0.78rem;
-  color: var(--text-3);
-  font-weight: 500;
-}
-
-.about-content .section-title {
-  margin-bottom: 20px;
+  gap: 0;
 }
 
 .about-text {
   font-size: 0.98rem;
   color: var(--text-2);
-  line-height: 1.8;
-  margin-bottom: 16px;
+  line-height: 1.85;
+  margin-bottom: 18px;
 }
 
 .about-text strong { color: var(--text); font-weight: 600; }
@@ -563,7 +515,83 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  margin-top: 32px;
+  margin-top: 24px;
+}
+
+/* Right column */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 100px;
+}
+
+/* Stats card */
+.about-stats-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 28px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+}
+
+.stat-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border-soft);
+  flex-shrink: 0;
+}
+
+/* Quick facts card */
+.about-facts {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: var(--text-2);
+}
+
+.fact-item svg {
+  color: var(--accent);
+  flex-shrink: 0;
 }
 
 /* ═══════════════════════════════════════════════════
@@ -987,7 +1015,7 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
    CONTACT
    ═══════════════════════════════════════════════════ */
 .contact-section {
-  background: var(--bg-secondary);
+  background: var(--bg);
 }
 
 .contact-inner {
@@ -1280,13 +1308,13 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
   .nav-links { display: none; }
   .hamburger { display: flex; }
 
-  .about-grid {
+  .about-body {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
 
-  .about-image-wrap {
-    align-items: center;
+  .about-right {
+    position: static;
   }
 
   .timeline {
@@ -1320,17 +1348,15 @@ button { cursor: pointer; border: none; background: none; font-family: inherit; 
     grid-template-columns: 1fr;
   }
 
-  .about-stats {
-    justify-content: center;
+  .about-stats-card {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
   }
 
-  .about-image-frame,
-  .about-image-placeholder {
-    width: 240px;
-  }
-
-  .about-image-placeholder {
-    height: 260px;
+  .stat-divider {
+    width: 80px;
+    height: 1px;
   }
 
   .cta-box {
